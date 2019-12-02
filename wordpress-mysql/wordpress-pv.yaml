@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wp-pv
+  labels:
+    app: wordpress
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  nfs:
+    path: /data/wp-web
+    #path: /kube/wordpress
+    server: 10.141.174.162
+    #server: k8sm
